@@ -78,6 +78,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/crbaniak/Link to fall18/4760_OS/code/ass6/header.h">
+			<Option target="ass6"/>
+		</Unit>
 		<Unit filename="/home/crbaniak/Link to fall18/4760_OS/code/ass6/oss.c">
 			<Option target="ass6"/>
 		</Unit>

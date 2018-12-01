@@ -2,10 +2,12 @@
 // Created by crbaniak on 12/1/18.
 //
 
-#include <stdio.h>
+#include "header.h"
 
 int main() {
-    printf("Hello, World!\n");
+
+    sharedMemoryConfig();
+
     return 0;
 }
 

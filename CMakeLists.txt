@@ -3,4 +3,4 @@ project(ass6 C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(ass6 oss.c user.c)
+add_executable(ass6 oss.c user.c header.h)
