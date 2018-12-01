@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/ass6.dir/main.c.o"
+  "CMakeFiles/ass6.dir/oss.c.o"
+  "CMakeFiles/ass6.dir/user.c.o"
   "ass6.pdb"
   "ass6"
 )

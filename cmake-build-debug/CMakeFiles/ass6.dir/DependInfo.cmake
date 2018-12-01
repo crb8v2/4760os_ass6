@@ -4,7 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/crbaniak/Desktop/Link to fall18/4760_OS/ass6/main.c" "/home/crbaniak/Desktop/Link to fall18/4760_OS/ass6/cmake-build-debug/CMakeFiles/ass6.dir/main.c.o"
+  "/home/crbaniak/Link to fall18/4760_OS/code/ass6/oss.c" "/home/crbaniak/Link to fall18/4760_OS/code/ass6/cmake-build-debug/CMakeFiles/ass6.dir/oss.c.o"
+  "/home/crbaniak/Link to fall18/4760_OS/code/ass6/user.c" "/home/crbaniak/Link to fall18/4760_OS/code/ass6/cmake-build-debug/CMakeFiles/ass6.dir/user.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

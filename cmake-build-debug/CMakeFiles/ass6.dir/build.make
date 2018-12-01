@@ -43,10 +43,10 @@ RM = /home/crbaniak/Programs/clion-2018.2.2/bin/cmake/linux/bin/cmake -E remove 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/crbaniak/Desktop/Link to fall18/4760_OS/ass6"
+CMAKE_SOURCE_DIR = "/home/crbaniak/Link to fall18/4760_OS/code/ass6"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/crbaniak/Desktop/Link to fall18/4760_OS/ass6/cmake-build-debug"
+CMAKE_BINARY_DIR = "/home/crbaniak/Link to fall18/4760_OS/code/ass6/cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ass6.dir/depend.make
@@ -57,30 +57,45 @@ include CMakeFiles/ass6.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/ass6.dir/flags.make
 
-CMakeFiles/ass6.dir/main.c.o: CMakeFiles/ass6.dir/flags.make
-CMakeFiles/ass6.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/crbaniak/Desktop/Link to fall18/4760_OS/ass6/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/ass6.dir/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ass6.dir/main.c.o   -c "/home/crbaniak/Desktop/Link to fall18/4760_OS/ass6/main.c"
+CMakeFiles/ass6.dir/oss.c.o: CMakeFiles/ass6.dir/flags.make
+CMakeFiles/ass6.dir/oss.c.o: ../oss.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/crbaniak/Link to fall18/4760_OS/code/ass6/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/ass6.dir/oss.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ass6.dir/oss.c.o   -c "/home/crbaniak/Link to fall18/4760_OS/code/ass6/oss.c"
 
-CMakeFiles/ass6.dir/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ass6.dir/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/crbaniak/Desktop/Link to fall18/4760_OS/ass6/main.c" > CMakeFiles/ass6.dir/main.c.i
+CMakeFiles/ass6.dir/oss.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ass6.dir/oss.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/crbaniak/Link to fall18/4760_OS/code/ass6/oss.c" > CMakeFiles/ass6.dir/oss.c.i
 
-CMakeFiles/ass6.dir/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ass6.dir/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/crbaniak/Desktop/Link to fall18/4760_OS/ass6/main.c" -o CMakeFiles/ass6.dir/main.c.s
+CMakeFiles/ass6.dir/oss.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ass6.dir/oss.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/crbaniak/Link to fall18/4760_OS/code/ass6/oss.c" -o CMakeFiles/ass6.dir/oss.c.s
+
+CMakeFiles/ass6.dir/user.c.o: CMakeFiles/ass6.dir/flags.make
+CMakeFiles/ass6.dir/user.c.o: ../user.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/crbaniak/Link to fall18/4760_OS/code/ass6/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/ass6.dir/user.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/ass6.dir/user.c.o   -c "/home/crbaniak/Link to fall18/4760_OS/code/ass6/user.c"
+
+CMakeFiles/ass6.dir/user.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ass6.dir/user.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/crbaniak/Link to fall18/4760_OS/code/ass6/user.c" > CMakeFiles/ass6.dir/user.c.i
+
+CMakeFiles/ass6.dir/user.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ass6.dir/user.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/crbaniak/Link to fall18/4760_OS/code/ass6/user.c" -o CMakeFiles/ass6.dir/user.c.s
 
 # Object files for target ass6
 ass6_OBJECTS = \
-"CMakeFiles/ass6.dir/main.c.o"
+"CMakeFiles/ass6.dir/oss.c.o" \
+"CMakeFiles/ass6.dir/user.c.o"
 
 # External object files for target ass6
 ass6_EXTERNAL_OBJECTS =
 
-ass6: CMakeFiles/ass6.dir/main.c.o
+ass6: CMakeFiles/ass6.dir/oss.c.o
+ass6: CMakeFiles/ass6.dir/user.c.o
 ass6: CMakeFiles/ass6.dir/build.make
 ass6: CMakeFiles/ass6.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/crbaniak/Desktop/Link to fall18/4760_OS/ass6/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable ass6"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/crbaniak/Link to fall18/4760_OS/code/ass6/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable ass6"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ass6.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -93,6 +108,6 @@ CMakeFiles/ass6.dir/clean:
 .PHONY : CMakeFiles/ass6.dir/clean
 
 CMakeFiles/ass6.dir/depend:
-	cd "/home/crbaniak/Desktop/Link to fall18/4760_OS/ass6/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/crbaniak/Desktop/Link to fall18/4760_OS/ass6" "/home/crbaniak/Desktop/Link to fall18/4760_OS/ass6" "/home/crbaniak/Desktop/Link to fall18/4760_OS/ass6/cmake-build-debug" "/home/crbaniak/Desktop/Link to fall18/4760_OS/ass6/cmake-build-debug" "/home/crbaniak/Desktop/Link to fall18/4760_OS/ass6/cmake-build-debug/CMakeFiles/ass6.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/home/crbaniak/Link to fall18/4760_OS/code/ass6/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/crbaniak/Link to fall18/4760_OS/code/ass6" "/home/crbaniak/Link to fall18/4760_OS/code/ass6" "/home/crbaniak/Link to fall18/4760_OS/code/ass6/cmake-build-debug" "/home/crbaniak/Link to fall18/4760_OS/code/ass6/cmake-build-debug" "/home/crbaniak/Link to fall18/4760_OS/code/ass6/cmake-build-debug/CMakeFiles/ass6.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/ass6.dir/depend
 

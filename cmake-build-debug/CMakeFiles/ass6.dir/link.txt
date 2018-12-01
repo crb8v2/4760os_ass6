@@ -1,1 +1,1 @@
-/usr/bin/cc -g   CMakeFiles/ass6.dir/main.c.o  -o ass6 
+/usr/bin/cc -g   CMakeFiles/ass6.dir/oss.c.o CMakeFiles/ass6.dir/user.c.o  -o ass6 

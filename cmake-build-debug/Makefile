@@ -48,10 +48,10 @@ RM = /home/crbaniak/Programs/clion-2018.2.2/bin/cmake/linux/bin/cmake -E remove 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/crbaniak/Desktop/Link to fall18/4760_OS/ass6"
+CMAKE_SOURCE_DIR = "/home/crbaniak/Link to fall18/4760_OS/code/ass6"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/crbaniak/Desktop/Link to fall18/4760_OS/ass6/cmake-build-debug"
+CMAKE_BINARY_DIR = "/home/crbaniak/Link to fall18/4760_OS/code/ass6/cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/crbaniak/Desktop/Link to fall18/4760_OS/ass6/cmake-build-debug/CMakeFiles" "/home/crbaniak/Desktop/Link to fall18/4760_OS/ass6/cmake-build-debug/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/crbaniak/Link to fall18/4760_OS/code/ass6/cmake-build-debug/CMakeFiles" "/home/crbaniak/Link to fall18/4760_OS/code/ass6/cmake-build-debug/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/crbaniak/Desktop/Link to fall18/4760_OS/ass6/cmake-build-debug/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/crbaniak/Link to fall18/4760_OS/code/ass6/cmake-build-debug/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -123,32 +123,59 @@ ass6/fast:
 	$(MAKE) -f CMakeFiles/ass6.dir/build.make CMakeFiles/ass6.dir/build
 .PHONY : ass6/fast
 
-main.o: main.c.o
+oss.o: oss.c.o
 
-.PHONY : main.o
+.PHONY : oss.o
 
 # target to build an object file
-main.c.o:
-	$(MAKE) -f CMakeFiles/ass6.dir/build.make CMakeFiles/ass6.dir/main.c.o
-.PHONY : main.c.o
+oss.c.o:
+	$(MAKE) -f CMakeFiles/ass6.dir/build.make CMakeFiles/ass6.dir/oss.c.o
+.PHONY : oss.c.o
 
-main.i: main.c.i
+oss.i: oss.c.i
 
-.PHONY : main.i
+.PHONY : oss.i
 
 # target to preprocess a source file
-main.c.i:
-	$(MAKE) -f CMakeFiles/ass6.dir/build.make CMakeFiles/ass6.dir/main.c.i
-.PHONY : main.c.i
+oss.c.i:
+	$(MAKE) -f CMakeFiles/ass6.dir/build.make CMakeFiles/ass6.dir/oss.c.i
+.PHONY : oss.c.i
 
-main.s: main.c.s
+oss.s: oss.c.s
 
-.PHONY : main.s
+.PHONY : oss.s
 
 # target to generate assembly for a file
-main.c.s:
-	$(MAKE) -f CMakeFiles/ass6.dir/build.make CMakeFiles/ass6.dir/main.c.s
-.PHONY : main.c.s
+oss.c.s:
+	$(MAKE) -f CMakeFiles/ass6.dir/build.make CMakeFiles/ass6.dir/oss.c.s
+.PHONY : oss.c.s
+
+user.o: user.c.o
+
+.PHONY : user.o
+
+# target to build an object file
+user.c.o:
+	$(MAKE) -f CMakeFiles/ass6.dir/build.make CMakeFiles/ass6.dir/user.c.o
+.PHONY : user.c.o
+
+user.i: user.c.i
+
+.PHONY : user.i
+
+# target to preprocess a source file
+user.c.i:
+	$(MAKE) -f CMakeFiles/ass6.dir/build.make CMakeFiles/ass6.dir/user.c.i
+.PHONY : user.c.i
+
+user.s: user.c.s
+
+.PHONY : user.s
+
+# target to generate assembly for a file
+user.c.s:
+	$(MAKE) -f CMakeFiles/ass6.dir/build.make CMakeFiles/ass6.dir/user.c.s
+.PHONY : user.c.s
 
 # Help Target
 help:
@@ -159,9 +186,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... ass6"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... oss.o"
+	@echo "... oss.i"
+	@echo "... oss.s"
+	@echo "... user.o"
+	@echo "... user.i"
+	@echo "... user.s"
 .PHONY : help
 
 
