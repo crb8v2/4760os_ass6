@@ -20,7 +20,7 @@ int main() {
 
 
     // clean shared mem
-    shmdt(pageTablePtr);
+    shmdt(sharedPtr);
 
     return 0;
 }

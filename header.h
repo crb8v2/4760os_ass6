@@ -12,9 +12,8 @@
 #include <sys/msg.h>
 #include <unistd.h>
 #include <string.h>
+#include <signal.h>
 
-
-//#include <signal.h>
 //#include <sys/types.h>
 //#include <time.h>
 //#include <sys/ipc.h>
@@ -22,14 +21,38 @@
 //#include <sys/time.h>
 //#include <sys/stat.h>
 
-#define PAGE_TABLE_SHMKEY 123123
+#define MAX_PROCS 18
+#define SHMKEY 123123
 
 // #####
 // ##### STRUCTURES #####
 // #####
-typedef struct {
 
+// struct for time
+typedef struct {
+    unsigned int seconds;
+    unsigned int nanoseconds;
+} systemClock_t;
+
+// frame table
+typedef struct {
+    int pageTablePages[256];
+    int PIDS[256];
+    int referenceFlag[156];
+    int dirtyBit[156];
+} frameTable_t;
+
+// page table
+typedef struct {
+    int frameTableFrames[32];
 } pageTable_t;
+
+//for shared memory
+typedef struct {
+    int processAddressCalled[18];
+    int processReadOrWrite[18];
+    int processCallCount[18];
+} shared_t;
 
 struct mesg_buffer {
     long mesg_type;
@@ -37,28 +60,36 @@ struct mesg_buffer {
 } message;
 
 // #####
-// ##### GLOBALS #####
+// ##### VARIABLES #####
 // #####
-unsigned int seconds;       // oss clock seconds
-unsigned int nanoseconds;   // oss clock nanoseconds
-int pageTableShmid;         // hold the shared mem segment id
-pageTable_t *pageTablePtr;  // points to the data structure
-key_t key;                  // for message queue
-int msgid;                  // for message queue
+unsigned int seconds;           // oss clock seconds
+unsigned int nanoseconds;       // oss clock nanoseconds
+
+int pidHolder[18] = {};         // for checking program termination
+
+frameTable_t frameTable;        // define frame table
+pageTable_t pageTable[MAX_PROCS];   // define array of page tables
+
+int sharedShmid; // shmem - holds the shared memory segment id
+shared_t *sharedPtr; // shmem - points to the data structure
+
+int msgid;                      // for message queue
+key_t key;                      // for message queue
+
 
 // #####
 // ##### FUNCTIONS #####
 // #####
 void sharedMemoryConfig() {
-
-    //shared memory for page table
-    pageTableShmid = shmget(PAGE_TABLE_SHMKEY, sizeof(pageTable_t), IPC_CREAT | 0777);
-    if (pageTableShmid < 0) {
+    //shared mem for sysClock
+    sharedShmid = shmget(SHMKEY, sizeof(systemClock_t), IPC_CREAT|0777);
+    if(sharedShmid < 0)
+    {
         perror("sysClock shmget error in master \n");
         exit(errno);
     }
-    pageTablePtr = shmat(pageTableShmid, NULL, 0);
-    if (pageTablePtr < 0) {
+    sharedPtr = shmat(sharedShmid, NULL, 0);
+    if(sharedPtr < 0){
         perror("sysClock shmat error in oss\n");
         exit(errno);
     }
