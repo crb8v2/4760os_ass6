@@ -62,6 +62,7 @@ struct mesg_buffer {
 // #####
 // ##### VARIABLES #####
 // #####
+
 unsigned int seconds;           // oss clock seconds
 unsigned int nanoseconds;       // oss clock nanoseconds
 
@@ -80,6 +81,7 @@ key_t key;                      // for message queue
 // #####
 // ##### FUNCTIONS #####
 // #####
+
 void sharedMemoryConfig() {
     //shared mem for sysClock
     sharedShmid = shmget(SHMKEY, sizeof(systemClock_t), IPC_CREAT|0777);
@@ -104,6 +106,10 @@ void messageQueueConfig(){
 }
 
 #endif //ASS6_HEADER_H
+
+
+
+
 
 
 
