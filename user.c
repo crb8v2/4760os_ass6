@@ -35,7 +35,7 @@ void getUserVariables(int pageTableID){
     srand(getpid());
 
     // process address space called 0-32k
-    sharedShmptr -> processAddressCalled[pageTableID] = (rand() % 31999) + 1;
+    sharedShmptr -> processAddressCalled[pageTableID] = (rand() % (31999-1)) + 1;
 
     int readOrWrite = (rand() % 9);
 

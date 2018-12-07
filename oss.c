@@ -4,10 +4,12 @@
 
 #include "header.h"
 
+void testOutputs();
 void sigint(int);
 void checkMsgQ();
 void cleanup();
 void createProcess();
+void runCountCheckForTermination();
 
 int main() {
 
@@ -15,30 +17,34 @@ int main() {
     messageQueueConfig();
     signal(SIGINT, sigint);     // for ctrl-c termination
     signal(SIGSEGV, sigint);    // for seg faults
-
+    initRandomForkTimes();
 
     // ##### MAIN LOOP #####
+    while(procsRunning == 0){
 
-    for(int ii = 0; ii < 5; ii++){
-//    while(1){
-        // fork processes
-        int ii;
-        for(ii = 0; ii < 2; ii++){
-            createProcess();
-        }
+        // fork processes if time is reached and
+        // pidHolder is not all 1's
+        createProcess();
+
+        // check if any of the max run counts have been met
+        // if so place a 1 in the pidHolder position
+//        runCountCheckForTermination();
 
         sleep(2);
+
         checkMsgQ();
     }
 
 
+    testOutputs();
 
+    cleanup();
 
+    return 0;
+}
 
-
-
-
-
+//test outputs
+void testOutputs(){
     //##### OUTPUTS FOR CHECKING #####
 
     int ii;
@@ -68,16 +74,12 @@ int main() {
     printf("\n addr: %d \n",sharedShmptr -> processAddressCalled[2]);
     printf("\n RW: %d \n",sharedShmptr -> processReadOrWrite[2]);
     printf("\n count: %d \n",sharedShmptr -> processCallCount[2]);
-
-
-
-    cleanup();
-
-    return 0;
 }
 
 // handles control c
 void sigint(int a) {
+
+    testOutputs();
 
     // write to log
 
@@ -100,7 +102,14 @@ void checkMsgQ(){
         printf("\n Data Received is : %s \n", message.mesg_text);
     }
 
+    char *p;
+    int PID = strtol(message.mesg_text, &p, 10);
+
+    printf("\n PID FROM MSGQ: %d\n", PID);
+
     strcpy(message.mesg_text, "0");
+
+
 }
 
 void cleanup(){
@@ -122,8 +131,18 @@ void cleanup(){
 
 void createProcess(){
 
+    int sumOfDeadProcs;
+
+    // check if mainPIDHolder is all 1's
+    int ii;
+    for(ii = 0; ii < 18; ii++){
+        if(mainPIDHolder[ii] == 1){
+            sumOfDeadProcs++;
+        }
+    }
+
     //max forks allowed
-    while(numForksMade < 2){
+    while(numForksMade <= MAX_PROCS && sumOfDeadProcs < 18){
 
         int positionPID = numForksMade;
         numForksMade++;
@@ -132,11 +151,35 @@ void createProcess(){
 
         sprintf(stashbox, "%d", positionPID);
 
-        // creates process in the pidHolder at
-        if ((mainPIDHolder[positionPID] = fork()) == 0) {
-            // argv{0] is page table number
-            execl("./user", "user", stashbox, NULL);
+
+        // fork into the pidholder postions with arr[pos] = 0;
+        for(ii = 0; ii < 18; ii++){
+            if(mainPIDHolder[ii] == 0){
+
+                // creates process in the pidHolder at
+                if ((mainPIDHolder[positionPID] = fork()) == 0) {
+                    // argv{0] is page table number
+                    execl("./user", "user", stashbox, NULL);
+                }
+
+            }
         }
+
+
         //nothing below this is access, until end of statement
     }
+}
+
+void runCountCheckForTemination(){
+
+    int ii;
+    for(ii = 0; ii < 18; ii++){
+        if(sharedShmptr -> processCallCount[ii] >= 1000)
+            mainPIDHolder[ii] = 1;
+    }
+
+    for(ii = 0; ii < 18; ii++){
+
+    }
+
 }

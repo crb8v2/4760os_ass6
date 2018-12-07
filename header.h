@@ -78,6 +78,11 @@ int proccessesRunning = 0;      // variable that terminates program
 
 int mainPIDHolder[18] = {};    //the main pid holder user to check for termination
 int numForksMade = 0;
+int randTimeToFork[18];         // each processes random time to fork
+
+int procsRunning = 0;
+
+// when flagged 1, program will terminate
 // #####
 // ##### FUNCTIONS #####
 // #####
@@ -103,6 +108,19 @@ void messageQueueConfig(){
         // msgget creates a message queue
         // and returns identifier
         msgid = msgget(key, 0666 | IPC_CREAT);
+}
+
+void initRandomForkTimes(){
+
+    // init clock to random
+    time_t t;
+    srand((unsigned) time(&t));
+
+    int ii;
+    for(ii = 0; ii < 18; ii++){
+        randTimeToFork[ii] = (rand() % (500 - 100)) + 100;
+    }
+
 }
 
 #endif //ASS6_HEADER_H
