@@ -12,10 +12,12 @@ void createProcess();
 int main() {
 
     sharedMemoryConfig();
-
     messageQueueConfig();
+    signal(SIGINT, sigint);     // for ctrl-c termination
+    signal(SIGSEGV, sigint);    // for seg faults
 
-    signal(SIGINT, sigint);
+
+    // ##### MAIN LOOP #####
 
     for(int ii = 0; ii < 5; ii++){
 //    while(1){
@@ -24,22 +26,52 @@ int main() {
         for(ii = 0; ii < 2; ii++){
             createProcess();
         }
+
+        sleep(2);
+        checkMsgQ();
     }
+
+
+
+
+
+
+
+
+
+    //##### OUTPUTS FOR CHECKING #####
 
     int ii;
     for(ii = 0; ii < 18; ii++){
         printf("%d ", mainPIDHolder[ii]);
     }
 
-    sleep(5);
+//    sleep(2);
 
-    for(int ii = 0; ii < 2; ii++){
-        checkMsgQ();
-    }
+
+
+//    for(int ii = 0; ii < 2; ii++){
+//        checkMsgQ();
+//    }
+
+    printf("\n ref: %d \n",sharedShmptr -> checkProcNum[0]);
+    printf("\n addr: %d \n",sharedShmptr -> processAddressCalled[0]);
+    printf("\n RW: %d \n",sharedShmptr -> processReadOrWrite[0]);
+    printf("\n count: %d \n",sharedShmptr -> processCallCount[0]);
+
+
+    printf("\n ref: %d \n",sharedShmptr -> checkProcNum[1]);
+    printf("\n addr: %d \n",sharedShmptr -> processAddressCalled[1]);
+    printf("\n RW: %d \n",sharedShmptr -> processReadOrWrite[1]);
+    printf("\n count: %d \n",sharedShmptr -> processCallCount[1]);
+
+    printf("\n addr: %d \n",sharedShmptr -> processAddressCalled[2]);
+    printf("\n RW: %d \n",sharedShmptr -> processReadOrWrite[2]);
+    printf("\n count: %d \n",sharedShmptr -> processCallCount[2]);
+
+
 
     cleanup();
-
-    printf("\n were back\n");
 
     return 0;
 }
@@ -55,7 +87,6 @@ void sigint(int a) {
     printf("^C caught\n");
     exit(0);
 }
-
 
 void checkMsgQ(){
     int pidPass;
@@ -97,9 +128,14 @@ void createProcess(){
         int positionPID = numForksMade;
         numForksMade++;
 
+        char stashbox[10];
+
+        sprintf(stashbox, "%d", positionPID);
+
         // creates process in the pidHolder at
         if ((mainPIDHolder[positionPID] = fork()) == 0) {
-            execl("./user", "user", NULL);
+            // argv{0] is page table number
+            execl("./user", "user", stashbox, NULL);
         }
         //nothing below this is access, until end of statement
     }

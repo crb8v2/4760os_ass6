@@ -50,7 +50,7 @@ typedef struct {
 //for shared memory
 typedef struct {
     int sharedPIDHolder[18];         // for checking program termination
-
+    int checkProcNum[18];
     int processAddressCalled[18];
     int processReadOrWrite[18];
     int processCallCount[18];
