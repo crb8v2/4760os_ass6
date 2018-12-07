@@ -13,9 +13,9 @@
 #include <unistd.h>
 #include <string.h>
 #include <signal.h>
+#include <time.h>
 
 //#include <sys/types.h>
-//#include <time.h>
 //#include <sys/ipc.h>
 //#include <sys/wait.h>
 //#include <sys/time.h>
@@ -31,7 +31,7 @@
 // struct for time
 typedef struct {
     unsigned int seconds;
-    unsigned int nanoseconds;
+    unsigned int milliseconds;
 } systemClock_t;
 
 // frame table
@@ -49,6 +49,8 @@ typedef struct {
 
 //for shared memory
 typedef struct {
+    int sharedPIDHolder[18];         // for checking program termination
+
     int processAddressCalled[18];
     int processReadOrWrite[18];
     int processCallCount[18];
@@ -63,21 +65,19 @@ struct mesg_buffer {
 // ##### VARIABLES #####
 // #####
 
-unsigned int seconds;           // oss clock seconds
-unsigned int nanoseconds;       // oss clock nanoseconds
-
-int pidHolder[18] = {};         // for checking program termination
-
 frameTable_t frameTable;        // define frame table
 pageTable_t pageTable[MAX_PROCS];   // define array of page tables
 
-int sharedShmid; // shmem - holds the shared memory segment id
-shared_t *sharedPtr; // shmem - points to the data structure
+int sharedShmid;                // shmem - holds the shared memory segment id
+shared_t *sharedShmptr;            // shmem - points to the data structure
 
 int msgid;                      // for message queue
 key_t key;                      // for message queue
 
+int proccessesRunning = 0;      // variable that terminates program
 
+int mainPIDHolder[18] = {};    //the main pid holder user to check for termination
+int numForksMade = 0;
 // #####
 // ##### FUNCTIONS #####
 // #####
@@ -90,8 +90,8 @@ void sharedMemoryConfig() {
         perror("sysClock shmget error in master \n");
         exit(errno);
     }
-    sharedPtr = shmat(sharedShmid, NULL, 0);
-    if(sharedPtr < 0){
+    sharedShmptr = shmat(sharedShmid, NULL, 0);
+    if(sharedShmptr < 0){
         perror("sysClock shmat error in oss\n");
         exit(errno);
     }

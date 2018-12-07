@@ -10,18 +10,38 @@ int main() {
 
     messageQueueConfig();
 
+    // init clock to random
+    time_t t;
+    srand((unsigned) time(&t));
+    int memoryRequest = (rand() % 31999) + 1;
+
+    int readOrWrite = (rand() % 9);
+
+    if(readOrWrite <= 6){
+        //read
+    } else {
+        //write
+    }
+
+
+
+
+
 //  ***** writes to message queue
-//    sprintf(message.mesg_text, "%d", getpid());
+    sprintf(message.mesg_text, "%d", getpid());
 ////  strcpy(message.mesg_text, "A message from the msgQ");
-//    message.mesg_type = 1;
+    message.mesg_type = 1;
 //    // msgsnd to send message queue
-//    msgsnd(msgid, &message, sizeof(message), 0);
+    msgsnd(msgid, &message, sizeof(message), 0);
 
 
 
     // clean shared mem
-    shmdt(sharedPtr);
+    shmdt(sharedShmptr);
 
-    return 0;
+    printf("\n process with PID: %d \n", getpid());
+
+    exit(0);
+
 }
 
