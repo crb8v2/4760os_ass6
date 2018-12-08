@@ -15,6 +15,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/header.h" beforeDir="false" afterPath="$PROJECT_DIR$/header.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oss.c" beforeDir="false" afterPath="$PROJECT_DIR$/oss.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user.c" beforeDir="false" afterPath="$PROJECT_DIR$/user.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -69,85 +70,65 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="c" value="4426" />
-          <entry key="h" value="2155" />
+          <entry key="c" value="7285" />
+          <entry key="h" value="2246" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Doxygen file" value="1" />
-          <entry key="ObjectiveC" value="6580" />
+          <entry key="ObjectiveC" value="9530" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="c" value="4" />
-          <entry key="h" value="3" />
+          <entry key="c" value="5" />
+          <entry key="h" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="ObjectiveC" value="7" />
+          <entry key="ObjectiveC" value="9" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.8549362">
+    <splitter split-orientation="horizontal" split-proportion="0.29952988">
       <split-first>
-        <splitter split-orientation="horizontal" split-proportion="0.4874214">
-          <split-first>
-            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/header.h">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="300">
-                      <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
-                      <folding>
-                        <element signature="e#87#105#0" expanded="true" />
-                        <element signature="e#610#719#0" />
-                        <element signature="e#757#797#0" />
-                        <element signature="e#1057#1124#1" />
-                        <element signature="e#1780#2173#0" />
-                        <element signature="e#2175#2401#0" />
-                        <element signature="e#2478#2508#0" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-            </leaf>
-          </split-first>
-          <split-second>
-            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file pinned="false" current-in-tab="true">
-                <entry file="file://$PROJECT_DIR$/oss.c">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="345">
-                      <caret line="87" column="45" selection-start-line="87" selection-start-column="45" selection-end-line="87" selection-end-column="45" />
-                      <folding>
-                        <element signature="e#650#786#0" />
-                        <element signature="e#2048#2433#0" />
-                        <element signature="e#3050#3678#0" />
-                        <element signature="e#3414#3442#0" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-            </leaf>
-          </split-second>
-        </splitter>
-      </split-first>
-      <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/user.c">
+            <entry file="file://$PROJECT_DIR$/header.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-75">
-                  <caret line="21" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="15" />
+                <state relative-caret-position="699">
+                  <caret line="84" column="23" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="23" />
                   <folding>
-                    <element signature="e#1209#1454#0" />
+                    <element signature="e#87#105#0" expanded="true" />
+                    <element signature="e#1057#1124#1" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/oss.c">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="75">
+                  <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+                  <folding>
+                    <element signature="e#1008#1237#0" />
+                    <element signature="e#1239#1395#0" />
+                    <element signature="e#1478#1591#0" />
+                    <element signature="e#1398#1860#0" />
+                    <element signature="e#1862#2331#0" />
+                    <element signature="e#2333#2982#0" />
+                    <element signature="e#2984#3367#0" />
+                    <element signature="e#3369#4314#0" />
+                    <element signature="e#4825#5023#0" />
                   </folding>
                 </state>
               </provider>
@@ -163,6 +144,7 @@
       <find>sleep</find>
       <find>numForks</find>
       <find>numFor</find>
+      <find>PID</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -197,7 +179,24 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ass6" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ass6" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ass6" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -252,16 +251,15 @@
       <workItem from="1543699896079" duration="10385000" />
       <workItem from="1543977612803" duration="5549000" />
       <workItem from="1544035236935" duration="14635000" />
-      <workItem from="1544215341136" duration="14795000" />
+      <workItem from="1544215341136" duration="26310000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51265000" />
+    <option name="totallyTimeSpent" value="62780000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1985" y="-4" width="1535" height="904" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.14842176" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -275,7 +273,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.33376288" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.378866" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="CMake" order="11" />
@@ -311,8 +309,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/user.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-75">
-          <caret line="21" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="15" />
+        <state relative-caret-position="198">
+          <caret line="32" selection-start-line="32" selection-start-column="2" selection-end-line="32" selection-end-column="65" />
           <folding>
             <element signature="e#1209#1454#0" />
           </folding>
@@ -321,29 +319,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/header.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
+        <state relative-caret-position="699">
+          <caret line="84" column="23" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="23" />
           <folding>
             <element signature="e#87#105#0" expanded="true" />
-            <element signature="e#610#719#0" />
-            <element signature="e#757#797#0" />
             <element signature="e#1057#1124#1" />
-            <element signature="e#1780#2173#0" />
-            <element signature="e#2175#2401#0" />
-            <element signature="e#2478#2508#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/oss.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="87" column="45" selection-start-line="87" selection-start-column="45" selection-end-line="87" selection-end-column="45" />
+        <state relative-caret-position="75">
+          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
           <folding>
-            <element signature="e#650#786#0" />
-            <element signature="e#2048#2433#0" />
-            <element signature="e#3050#3678#0" />
-            <element signature="e#3414#3442#0" />
+            <element signature="e#1008#1237#0" />
+            <element signature="e#1239#1395#0" />
+            <element signature="e#1478#1591#0" />
+            <element signature="e#1398#1860#0" />
+            <element signature="e#1862#2331#0" />
+            <element signature="e#2333#2982#0" />
+            <element signature="e#2984#3367#0" />
+            <element signature="e#3369#4314#0" />
+            <element signature="e#4825#5023#0" />
           </folding>
         </state>
       </provider>

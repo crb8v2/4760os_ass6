@@ -19,19 +19,18 @@ int main(int argc, char* argv[]) {
     getUserVariables(pageTableID);
     writeMessageQ();
 
-//    sleep(5);
 
     // clean shared mem
     shmdt(sharedShmptr);
 
-    printf("\n process with PID: %d \n", getpid());
+//    printf("\n process with PID: %d \n", getpid());
 
 //    exit(0);
 }
 
 void getUserVariables(int pageTableID){
 
-    printf("\n page table/ process id is: %d \n", pageTableID);
+//    printf("\n page table/ process id is: %d \n", pageTableID);
 
     // init clock to random
     srand(getpid());

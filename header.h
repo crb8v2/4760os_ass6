@@ -36,15 +36,15 @@ typedef struct {
 
 // frame table
 typedef struct {
-    int pageTablePages[256];
+    int frames[256];
     int PIDS[256];
-    int referenceFlag[156];
-    int dirtyBit[156];
+    int referenceFlag[256];
+    char dirtyBit[256];
 } frameTable_t;
 
 // page table
 typedef struct {
-    int frameTableFrames[32];
+    int pages[32];
 } pageTable_t;
 
 //for shared memory
@@ -82,6 +82,8 @@ int randTimeToFork[18];         // each processes random time to fork
 
 int procsRunning = 0;
 
+int numWritesToLog = 0;
+
 int PID;        // holds a temp PID
 
 // when flagged 1, program will terminate
@@ -91,6 +93,7 @@ int PID;        // holds a temp PID
 
 void sharedMemoryConfig() {
     //shared mem for sysClock
+
     sharedShmid = shmget(SHMKEY, sizeof(systemClock_t), IPC_CREAT|0777);
     if(sharedShmid < 0)
     {
