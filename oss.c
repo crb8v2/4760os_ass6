@@ -325,7 +325,7 @@ void printMemoryLayout(){
 
     int ii;
     for(ii = 0; ii < 256; ii++){
-        if(ii % 16 == 0)
+        if(ii % 32 == 0)
             fprintf(fp, "\n");
         fprintf(fp, "%c", frameTable.dirtyBit[ii]);
     }
@@ -333,7 +333,7 @@ void printMemoryLayout(){
     fprintf(fp, "\n");
 
     for(ii = 0; ii < 256; ii++){
-        if(ii % 16 == 0)
+        if(ii % 32 == 0)
             fprintf(fp, "\n");
         fprintf(fp, "%d ", frameTable.referenceFlag[ii]);
     }
