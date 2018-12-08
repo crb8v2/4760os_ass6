@@ -11,12 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59aa0985-5356-493e-8a89-32fc90685701" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/header.h" beforeDir="false" afterPath="$PROJECT_DIR$/header.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oss.c" beforeDir="false" afterPath="$PROJECT_DIR$/oss.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user.c" beforeDir="false" afterPath="$PROJECT_DIR$/user.c" afterDir="false" />
-    </list>
+    <list default="true" id="59aa0985-5356-493e-8a89-32fc90685701" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,14 +65,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="c" value="7285" />
+          <entry key="c" value="7392" />
           <entry key="h" value="2246" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Doxygen file" value="1" />
-          <entry key="ObjectiveC" value="9530" />
+          <entry key="ObjectiveC" value="9637" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -117,8 +112,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/oss.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="75">
-                  <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+                <state relative-caret-position="196">
+                  <caret line="336" column="30" selection-start-line="336" selection-start-column="30" selection-end-line="336" selection-end-column="30" />
                   <folding>
                     <element signature="e#1008#1237#0" />
                     <element signature="e#1239#1395#0" />
@@ -251,12 +246,12 @@
       <workItem from="1543699896079" duration="10385000" />
       <workItem from="1543977612803" duration="5549000" />
       <workItem from="1544035236935" duration="14635000" />
-      <workItem from="1544215341136" duration="26310000" />
+      <workItem from="1544215341136" duration="26765000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62780000" />
+    <option name="totallyTimeSpent" value="63235000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1985" y="-4" width="1535" height="904" extended-state="6" />
@@ -273,7 +268,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.378866" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.33247423" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="CMake" order="11" />
@@ -330,8 +325,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/oss.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+        <state relative-caret-position="196">
+          <caret line="336" column="30" selection-start-line="336" selection-start-column="30" selection-end-line="336" selection-end-column="30" />
           <folding>
             <element signature="e#1008#1237#0" />
             <element signature="e#1239#1395#0" />

@@ -1,2 +1,11 @@
 
 ##### Connor Baniak #####
+
+GITHUB: https://github.com/crb8v2/4760os_ass6
+
+THIS PROJECT:
+	This is an example of Memory Management making requests between a page table and frame table. 
+	Termination occurs after all processes (max 18) have ran for a discrete amount of time.
+	If frames are not in the page table, a page fault occurs.
+	If there is a frame in the page table, the request is granted.
+	If the the frame table is full, the second change algorithm is implemented.
