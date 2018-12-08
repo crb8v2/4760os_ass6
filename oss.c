@@ -28,13 +28,13 @@ int main() {
         // pidHolder is not all 1's
         createProcess();
 
-        sleep(1);
+//        sleep(1);
 
         checkMsgQ();
 
         // check if any of the max run counts have been met
         // if so place a 1 in the pidHolder position
-//        runCountCheckForTermination();
+        runCountCheckForTermination();
 
 
     }
@@ -116,6 +116,7 @@ void checkMsgQ(){
     for(ii = 0; ii < 18; ii++){
         if(mainPIDHolder[ii] == PID) {
             mainPIDHolder[ii] = 0;
+            break;
         }
     }
 
@@ -151,32 +152,31 @@ void cleanup(){
 
 void createProcess(){
 
-        int positionPID = numForksMade;
-        numForksMade++;
+    int ii;
+    // fork into the pidholder postions with arr[pos] = 0;
+    for(ii = 0; ii < 18; ii++){
+        if(mainPIDHolder[ii] == 0){
 
-        char stashbox[10];
+            int positionPID = ii;
 
-        sprintf(stashbox, "%d", positionPID);
+            char stashbox[10];   // pass to execl
 
-        int ii;
-        // fork into the pidholder postions with arr[pos] = 0;
-        for(ii = 0; ii < 18; ii++){
-            if(mainPIDHolder[ii] == 0){
+            sprintf(stashbox, "%d", positionPID);
 
-                // creates process in the pidHolder at
-                if ((mainPIDHolder[ii] = fork()) == 0) {
-                    // argv{0] is page table number
-                    execl("./user", "user", stashbox, NULL);
-                }
-                printf("\nfork made with PID: %d\n", mainPIDHolder[ii]);
+            // creates process in the pidHolder at
+            if ((mainPIDHolder[ii] = fork()) == 0) {
+                // argv{0] is page table number
+                execl("./user", "user", stashbox, NULL);
             }
+
+            printf("\nfork made with PID: %d and ii: %d\n", mainPIDHolder[ii], ii);
             break;
         }
 
-
-        //nothing below this is access, until end of statement
-
+    }
 }
+
+
 
 void runCountCheckForTermination(){
 

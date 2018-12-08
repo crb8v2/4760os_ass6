@@ -129,10 +129,6 @@ void initRandomForkTimes(){
 
 
 
-
-
-
-
 //// adjust request timer
 //if ((nanoseconds + timeIncrement) > 999999999){
 //rollover = (nanoseconds + timeIncrement) - 999999999;
