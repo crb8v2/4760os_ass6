@@ -10,6 +10,7 @@ void checkMsgQ();
 void cleanup();
 void createProcess();
 void runCountCheckForTermination();
+void memoryManagement();
 
 int main() {
 
@@ -31,6 +32,10 @@ int main() {
 //        sleep(1);
 
         checkMsgQ();
+
+        // do the prcocesses work
+        // incremement the clock
+        memoryManagement();
 
         // check if any of the max run counts have been met
         // if so place a 1 in the pidHolder position
@@ -79,6 +84,8 @@ void testOutputs(){
     printf("\n addr: %d \n",sharedShmptr -> processAddressCalled[2]);
     printf("\n RW: %d \n",sharedShmptr -> processReadOrWrite[2]);
     printf("\n count: %d \n",sharedShmptr -> processCallCount[2]);
+
+    printf("\n The clock is: %d\n", theClock.milliseconds);
 }
 
 // handles control c
@@ -95,6 +102,7 @@ void sigint(int a) {
     exit(0);
 }
 
+
 void checkMsgQ(){
     int pidPass;
 
@@ -108,9 +116,9 @@ void checkMsgQ(){
     }
 
     char *p;
-    int PID = strtol(message.mesg_text, &p, 10);
+    PID = strtol(message.mesg_text, &p, 10);
 
-    printf("\n PID FROM MSGQ: %d\n", PID);
+//    printf("\n PID FROM MSGQ: %d\n", PID);
 
     int ii;
     for(ii = 0; ii < 18; ii++){
@@ -169,14 +177,14 @@ void createProcess(){
                 execl("./user", "user", stashbox, NULL);
             }
 
+
             printf("\nfork made with PID: %d and ii: %d\n", mainPIDHolder[ii], ii);
+
             break;
         }
 
     }
 }
-
-
 
 void runCountCheckForTermination(){
 
@@ -196,4 +204,22 @@ void runCountCheckForTermination(){
 
     if(sum >= 18)
         procsRunning = 1;
+}
+
+void memoryManagement(){
+
+    int ii;
+    for(ii = 0; ii < 18; ii++){
+        if(mainPIDHolder[ii] == PID) {
+            ii = PID;
+            break;
+        }
+    }
+
+    if(sharedShmptr->processReadOrWrite[ii] == 0){
+        theClock.milliseconds += 10;
+    } else if (sharedShmptr->processReadOrWrite[ii] == 1){
+        theClock.milliseconds += 7;
+    }
+
 }

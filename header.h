@@ -67,7 +67,7 @@ struct mesg_buffer {
 
 frameTable_t frameTable;        // define frame table
 pageTable_t pageTable[MAX_PROCS];   // define array of page tables
-
+systemClock_t theClock;         // define clock
 int sharedShmid;                // shmem - holds the shared memory segment id
 shared_t *sharedShmptr;            // shmem - points to the data structure
 
@@ -81,6 +81,8 @@ int numForksMade = 0;
 int randTimeToFork[18];         // each processes random time to fork
 
 int procsRunning = 0;
+
+int PID;        // holds a temp PID
 
 // when flagged 1, program will terminate
 // #####
