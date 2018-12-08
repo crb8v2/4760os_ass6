@@ -20,20 +20,25 @@ int main() {
     initRandomForkTimes();
 
     // ##### MAIN LOOP #####
-    while(procsRunning == 0){
+    while(procsRunning == 0) {
+
+
 
         // fork processes if time is reached and
         // pidHolder is not all 1's
         createProcess();
 
+        sleep(1);
+
+        checkMsgQ();
+
         // check if any of the max run counts have been met
         // if so place a 1 in the pidHolder position
 //        runCountCheckForTermination();
 
-        sleep(2);
 
-        checkMsgQ();
     }
+
 
 
     testOutputs();
@@ -107,12 +112,25 @@ void checkMsgQ(){
 
     printf("\n PID FROM MSGQ: %d\n", PID);
 
+    int ii;
+    for(ii = 0; ii < 18; ii++){
+        if(mainPIDHolder[ii] == PID) {
+            mainPIDHolder[ii] = 0;
+        }
+    }
+
     strcpy(message.mesg_text, "0");
 
 
 }
 
 void cleanup(){
+
+    if ( msgctl(msgid,IPC_RMID,0) < 0 )
+    {
+        perror("msgctl");
+    }
+
     // kill open forks
     int ii;
     for(ii = 0; ii < 18; ii++){
@@ -126,23 +144,12 @@ void cleanup(){
     shmdt(sharedShmptr);
     shmctl(sharedShmid, IPC_RMID, NULL);
     // to destroy the message queue
-    msgctl(msgid, IPC_RMID, NULL);
+//    msgctl(msgid, IPC_RMID, NULL);
+
+
 }
 
 void createProcess(){
-
-    int sumOfDeadProcs;
-
-    // check if mainPIDHolder is all 1's
-    int ii;
-    for(ii = 0; ii < 18; ii++){
-        if(mainPIDHolder[ii] == 1){
-            sumOfDeadProcs++;
-        }
-    }
-
-    //max forks allowed
-    while(numForksMade <= MAX_PROCS && sumOfDeadProcs < 18){
 
         int positionPID = numForksMade;
         numForksMade++;
@@ -151,35 +158,42 @@ void createProcess(){
 
         sprintf(stashbox, "%d", positionPID);
 
-
+        int ii;
         // fork into the pidholder postions with arr[pos] = 0;
         for(ii = 0; ii < 18; ii++){
             if(mainPIDHolder[ii] == 0){
 
                 // creates process in the pidHolder at
-                if ((mainPIDHolder[positionPID] = fork()) == 0) {
+                if ((mainPIDHolder[ii] = fork()) == 0) {
                     // argv{0] is page table number
                     execl("./user", "user", stashbox, NULL);
                 }
-
+                printf("\nfork made with PID: %d\n", mainPIDHolder[ii]);
             }
+            break;
         }
 
 
         //nothing below this is access, until end of statement
-    }
+
 }
 
-void runCountCheckForTemination(){
+void runCountCheckForTermination(){
 
+    //check run counts
     int ii;
     for(ii = 0; ii < 18; ii++){
-        if(sharedShmptr -> processCallCount[ii] >= 1000)
+        if(sharedShmptr -> processCallCount[ii] >= 10)
             mainPIDHolder[ii] = 1;
     }
 
+    int sum = 0;
+    //terminate if all 1's
     for(ii = 0; ii < 18; ii++){
-
+        if(mainPIDHolder[ii] == 1)
+            sum++;
     }
 
+    if(sum >= 18)
+        procsRunning = 1;
 }
